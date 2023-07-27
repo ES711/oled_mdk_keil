@@ -234,7 +234,7 @@ void taskDHT11(void *pvParm){
 //		HAL_GPIO_WritePin(GPIOB,LD3_Pin, 0);
 //		xSemaphoreGive(xSem);
 		xQueueSend(queueTemp, &Temp, portMAX_DELAY);
-		xQueueSend(queueHumi, &Humi, portMAX_DELAY);
+		xQueueSend(queueHumi, &Humi, pdMS_TO_TICKS(100));
 		vTaskDelay(3000);
 		xSemaphoreGive(xSem);
 	}
@@ -242,6 +242,7 @@ void taskDHT11(void *pvParm){
 }
 void taskBlank(void *pvParm){
 	uint8_t counter = 0;
+	vTaskPrioritySet(handleBlank, 1);
 	for(;;){
 		counter ++;
 		if(counter < 10){
@@ -249,6 +250,7 @@ void taskBlank(void *pvParm){
 		}
 		else{
 			vTaskSuspend(handleBlank);
+//			vTaskResume(handleBlank);
 		}
 		vTaskDelay(500);
 	}

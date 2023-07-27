@@ -197,6 +197,7 @@ Section Cross References
     main.o(.text.taskBlank) refers (Special) to printf1.o(x$fpl$printf1) for _printf_fp_dec
     main.o(.text.taskBlank) refers (Special) to scanf1.o(x$fpl$scanf1) for _scanf_real
     main.o(.text.taskBlank) refers to main.o(.bss.handleBlank) for handleBlank
+    main.o(.text.taskBlank) refers to tasks.o(.text.vTaskPrioritySet) for vTaskPrioritySet
     main.o(.text.taskBlank) refers to tasks.o(.text.vTaskSuspend) for vTaskSuspend
     main.o(.text.taskBlank) refers to tasks.o(.text.vTaskDelay) for vTaskDelay
     main.o(.text.taskBlank) refers to stm32f4xx_hal_gpio.o(.text.HAL_GPIO_TogglePin) for HAL_GPIO_TogglePin
@@ -4173,7 +4174,7 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.DHT11GetData), (8 bytes).
     Removing main.o(.ARM.exidx.text.taskOledControll), (8 bytes).
     Removing main.o(.ARM.exidx.text.taskDHT11), (8 bytes).
-    Removing main.o(.text.taskBlank), (54 bytes).
+    Removing main.o(.text.taskBlank), (62 bytes).
     Removing main.o(.ARM.exidx.text.taskBlank), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.exidx.text.SystemClock_Config), (8 bytes).
@@ -9163,7 +9164,7 @@ Removing Unused input sections from the image.
     Removing u8x8_u16toa.o(.ARM.exidx.text.u8x8_utoa), (8 bytes).
     Removing u8x8_u16toa.o(.bss.u8x8_u16toa.buf), (6 bytes).
 
-5002 unused section(s) (total 11741636 bytes) removed from the image.
+5002 unused section(s) (total 11741644 bytes) removed from the image.
 
 ==============================================================================
 
@@ -10911,7 +10912,7 @@ Image component sizes
        734          0          0          0      15392       5598   heap_4.o
        218          0          0          0         84       5330   i2c.o
        190          0          0          0          0       2322   list.o
-      2324         88          9          0        168      15485   main.o
+      2324         88          9          0        168      15499   main.o
        576         58          0          0        129       7722   oled.o
        900         16          0          4          8       4181   port.o
       2176          0          0          0         64      28270   queue.o
@@ -10956,7 +10957,7 @@ Image component sizes
        192          0          0          0       1292       4944   usb_otg.o
 
     ----------------------------------------------------------------------
-     27076        258       3204         16      23776     787718   Object Totals
+     27076        258       3204         16      23776     787732   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        192         12          2          0          2          0   (incl. Padding)
 
@@ -11074,8 +11075,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     38600        660       3668         16      23872     789814   Grand Totals
-     38600        660       3668         16      23872     789814   ELF Image Totals
+     38600        660       3668         16      23872     789828   Grand Totals
+     38600        660       3668         16      23872     789828   ELF Image Totals
      38600        660       3668         16          0          0   ROM Totals
 
 ==============================================================================
